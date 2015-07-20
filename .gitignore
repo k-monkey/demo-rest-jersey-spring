@@ -16,3 +16,6 @@
 /release.properties
 /.idea
 /demo-rest-jersey-spring.iml
+
+#local log
+/log

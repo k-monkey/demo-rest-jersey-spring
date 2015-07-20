@@ -11,10 +11,10 @@
 	</appender>
 
   	<appender name="dailyRollingFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<File>c:/tmp/rest-demo/rest-demo.log</File>
+		<File>./log/rest-demo.log</File>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 		    <!-- daily rollover -->
-			<FileNamePattern>c:/tmp/rest-demo/archive/rest-demo.%d{yyyy-MM-dd}.log</FileNamePattern>
+			<FileNamePattern>./log/rest-demo.%d{yyyy-MM-dd}.log</FileNamePattern>
 			
 			<!-- keep 30 days' worth of history -->
 			<maxHistory>30</maxHistory>			
@@ -27,7 +27,7 @@
   	<appender name="minuteRollingFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 		    <!-- rollover every minute -->
-			<FileNamePattern>c:/tmp/rest-demo/archive/minutes/rest-demo-minute.%d{yyyy-MM-dd_HH-mm}.log</FileNamePattern>
+			<FileNamePattern>./log/minutes/rest-demo-minute.%d{yyyy-MM-dd_HH-mm}.log</FileNamePattern>
 			
 			<!-- keep 1 day worth of history -->
 			<maxHistory>1</maxHistory>			
@@ -42,11 +42,14 @@
 	    <level value="DEBUG" />
 		<appender-ref ref="dailyRollingFileAppender"/>
 		<appender-ref ref="minuteRollingFileAppender"/>
-		<appender-ref ref="consoleAppender" />
+		<!-- <appender-ref ref="consoleAppender" />
+		-->
 	</logger>
 
 	<root>
 		<level value="INFO" />
-		<appender-ref ref="consoleAppender" />
+		<!--  <appender-ref ref="consoleAppender" />
+		-->
+		<appender-ref ref="dailyRollingFileAppender"/>
 	</root>
 </configuration> 
